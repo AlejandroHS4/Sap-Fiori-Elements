@@ -1,0 +1,423 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/API_PRODUCT_SRV/$metadata">
+        <edmx:Include Namespace="API_PRODUCT_SRV" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="SAP.A_ProductType">
+                <Annotation Term="UI.SelectionFields" >
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                        <PropertyPath>ProductGroup</PropertyPath>
+                        <PropertyPath>ProductType</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="Common.SemanticKey" >
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>product}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>products}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                         <PropertyValue Property="Description">
+                             <Record Type="UI.DataField">
+                                 <PropertyValue Property="Value" Path="ProductGroup"/>
+                             </Record>
+                         </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <PropertyValue Property="Label" String="{@i18n>product}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductGroup"/>
+                            <PropertyValue Property="Label" String="{@i18n>productGroup}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ItemCategoryGroup"/>
+                            <PropertyValue Property="Label" String="{@i18n>itemCategoryGroup}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductType"/>
+                            <PropertyValue Property="Label" String="{@i18n>productType}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductHierarchy"/>
+                            <PropertyValue Property="Label" String="{@i18n>productHierarchy}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Brand"/>
+                            <PropertyValue Property="Label" String="{@i18n>brand}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="FirstGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value"  Path="Product"/>
+                                    <PropertyValue Property="Label" String="{@i18n>product}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductGroup"/>
+                                    <PropertyValue Property="Label" String="{@i18n>productGroup}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ItemCategoryGroup"/>
+                                    <PropertyValue Property="Label" String="{@i18n>itemCategoryGroup}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductType"/>
+                                    <PropertyValue Property="Label" String="{@i18n>productType}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="SecondGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="GrossWeight"/>
+                                    <PropertyValue Property="Label" String="{@i18n>grossWeight}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="NetWeight"/>
+                                    <PropertyValue Property="Label" String="{@i18n>netWeight}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="WeightUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>weightUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="MaterialVolume"/>
+                                    <PropertyValue Property="Label" String="{@i18n>materialVolumen}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="VolumeUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>volumeUnit}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="ThirdGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreationDate"/>
+                                    <PropertyValue Property="Label" String="{@i18n>creationDate}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedByUser"/>
+                                    <PropertyValue Property="Label" String="{@i18n>createdByuser}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastChangeDate"/>
+                                    <PropertyValue Property="Label" String="{@i18n>lastChangeDate}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LastChangedByUser"/>
+                                    <PropertyValue Property="Label" String="{@i18n>lastChangedByUser}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets" >
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FirstGroup"/>
+                                        <PropertyValue Property="Label" String="{@i18n>productInformation}"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SecondGroup"/>
+                                        <PropertyValue Property="Label" String="{@i18n>details}"/>
+                                    </Record>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ThirdGroup"/>
+                                        <PropertyValue Property="Label" String="{@i18n>followup}"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                            <PropertyValue Property="Label" String="{@i18n>generalInformation}"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="to_Description/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="{@i18n>productDescription}"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="to_ProductBasicText/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="{@i18n>productBasicText}"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="to_ProductUnitsOfMeasure/@UI.LineItem"/>
+                            <PropertyValue Property="Label" String="{@i18n>unitsOfMeasurement}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+            </Annotations>
+
+            <Annotations Target="SAP.A_ProductDescriptionType">
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>productDescription}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>productsDescription}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductDescription"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem" >
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <PropertyValue Property="Label" String="{@i18n>product}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Language"/>
+                            <PropertyValue Property="Label" String="{@i18n>language}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductDescription"/>
+                            <PropertyValue Property="Label" String="{@i18n>productName}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="FirstGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Product"/>
+                                    <PropertyValue Property="Label" String="{@i18n>product}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Language"/>
+                                    <PropertyValue Property="Label" String="{@i18n>language}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductDescription"/>
+                                    <PropertyValue Property="Label" String="{@i18n>productName}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FirstGroup"/>
+                            <PropertyValue Property="Label" String="{@i18n>productDescription}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+            </Annotations>
+
+            <Annotations Target="SAP.A_ProductBasicTextType">
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>productbasictext}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>productsbasictext}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                                <PropertyValue Property="Label" String="{@i18n>product}"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <PropertyValue Property="Label" String="{@i18n>product}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Language"/>
+                            <PropertyValue Property="Label" String="{@i18n>language}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LongText"/>
+                            <PropertyValue Property="Label" String="{@i18n>longText}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="FirstGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Product"/>
+                                    <PropertyValue Property="Label" String="{@i18n>product}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Language"/>
+                                    <PropertyValue Property="Label" String="{@i18n>language}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="LongText"/>
+                                    <PropertyValue Property="Label" String="{@i18n>longText}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FirstGroup"/>
+                            <PropertyValue Property="Label" String="{@i18n>productBasicText}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+            </Annotations>
+
+            <Annotations Target="SAP.A_ProductUnitsOfMeasureType">
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>unitOfMeasure}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>unitsofmeasure}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BaseUnit"/>
+                            <PropertyValue Property="Label" String="{@i18n>baseUnit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="AlternativeUnit"/>
+                            <PropertyValue Property="Label" String="{@i18n>alternativeUnit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductMeasurementUnit"/>
+                            <PropertyValue Property="Label" String="{@i18n>productMeasurementUnit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="WeightUnit"/>
+                            <PropertyValue Property="Label" String="{@i18n>weightUnit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="VolumeUnit"/>
+                            <PropertyValue Property="Label" String="{@i18n>volumeUnit}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="QuantityNumerator"/>
+                            <PropertyValue Property="Label" String="{@i18n>quantityNumerator}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="QuantityDenominator"/>
+                            <PropertyValue Property="Label" String="{@i18n>quantityDenominator}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Product"/>
+                                    <PropertyValue Property="Label" String="{@i18n>product}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="BaseUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>baseUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="AlternativeUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>alternativeUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductMeasurementUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>productMeasurementUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="WeightUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>weightUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="VolumeUnit"/>
+                                    <PropertyValue Property="Label" String="{@i18n>volumeUnit}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="QuantityNumerator"/>
+                                    <PropertyValue Property="Label" String="{@i18n>quantityNumerator}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="QuantityDenominator"/>
+                                    <PropertyValue Property="Label" String="{@i18n>quantityDenominator}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record> 
+                </Annotation>
+
+                <Annotation Term="UI.Facets" >
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup"/>
+                            <PropertyValue Property="Label" String="{@i18n>unitsOfMeasurement}"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
